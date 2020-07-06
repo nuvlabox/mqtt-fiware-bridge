@@ -26,6 +26,7 @@ import socket
 import logging
 import sys
 import argparse
+import fastjsonschema
 import paho.mqtt.client as mqtt
 
 
@@ -65,6 +66,7 @@ def arguments():
     parser.add_argument('--mqtt-topic', dest='mqtt_topic', metavar='MQTT TOPIC', required=True)
     parser.add_argument('--output-connector', dest='connector', default=None, metavar='CONNECTOR NAME')
     parser.add_argument('--output-endpoint', dest='output_endpoint', default=None, metavar='ENDPOINT')
+    parser.add_argument('--fiware-data-types', dest='fiware_data_types', default=[], metavar='vehicle,alert,...')
 
     return parser
 
