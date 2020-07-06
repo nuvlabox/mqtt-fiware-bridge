@@ -80,7 +80,7 @@ def on_log(client, userdata, level, buf):
 
 
 if __name__ == "__main__":
-    log.info("Starting MQTT Fiware bridge")
+    log.info("Starting MQTT FIWARE bridge")
 
     args = arguments().parse_args()
 
