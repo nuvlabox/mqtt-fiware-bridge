@@ -1,0 +1,3 @@
+[submodule "code/mqtt_fiware_bridge/fiware"]
+	path = code/mqtt_fiware_bridge/fiware
+	url = https://github.com/FIWARE/data-models.git
