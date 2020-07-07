@@ -1,3 +1,0 @@
-[submodule "code/fiware"]
-	path = code/fiware
-	url = https://github.com/FIWARE/data-models.git
