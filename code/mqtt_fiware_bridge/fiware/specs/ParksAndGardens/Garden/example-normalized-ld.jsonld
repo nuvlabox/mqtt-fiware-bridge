@@ -1,0 +1,66 @@
+{
+    "id": "urn:ngsi-ld:Garden:Santander-Garden-Piquio",
+    "type": "Garden",
+    "category": {
+        "type": "Property",
+        "value": [
+            "public"
+        ]
+    },
+    "style": {
+        "type": "Property",
+        "value": "french"
+    },
+    "description": {
+        "type": "Property",
+        "value": "Jardines de Piquio. Zona El Sardinero"
+    },
+    "dateLastWatering": {
+        "type": "Property",
+        "value": {
+            "@type": "DateTime",
+            "@value": "2017-03-31T08:00:00Z"
+        }
+    },
+    "location": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Point",
+            "coordinates": [
+                -3.7836974,
+                43.4741091
+            ]
+        }
+    },
+    "refRecord": {
+        "type": "Relationship",
+        "object": [
+            "urn:ngsi-ld:Record:Santander-Garden-Piquio-Record-1"
+        ]
+    },
+    "areaServed": {
+        "type": "Property",
+        "value": "El Sardinero"
+    },
+    "address": {
+        "type": "Property",
+        "value": {
+            "addressLocality": "Santander",
+            "postalCode": "39005",
+            "streetAddress": "Avenida Castañeda",
+            "type": "PostalAddress"
+        }
+    },
+    "openingHours": {
+        "type": "Property",
+        "value": "Mo-Su"
+    },
+    "name": {
+        "type": "Property",
+        "value": "Jardines de Piquio"
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
+}

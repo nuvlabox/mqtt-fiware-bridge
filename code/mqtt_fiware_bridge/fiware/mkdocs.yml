@@ -1,0 +1,105 @@
+site_name: Fiware-DataModels
+site_url: https://fiware-datamodels.readthedocs.org
+repo_url: https://github.com/fiware/data-models
+site_description: FIWARE Data Models Documentation
+docs_dir: specs/
+site_dir: html/
+edit_uri: edit/master/specs/
+markdown_extensions: [toc,fenced_code]
+use_directory_urls: false
+theme: readthedocs
+extra_css: ["https://www.fiware.org/style/fiware_readthedocs.css", "https://www.fiware.org/style/fiware_readthedocs_core.css"]
+pages:
+  - Home: index.md
+  - How to: howto.md
+  - NGSI-LD How to: ngsi-ld_howto.md
+  - NGSI-LD FAQ:  ngsi-ld_faq.md
+  - Guidelines  : guidelines.md
+  - AgriFood: AgriFood/README.md
+  - Alerts:
+      - Alert                        : Alert/doc/spec.md
+  - Building:
+      - Introduction                 : Building/doc/introduction.md
+      - Building                     : Building/Building/doc/spec.md 
+      - BuildingOperation            : Building/BuildingOperation/doc/spec.md
+  - Civic Issue Tracking:
+      - Introduction                 : IssueTracking/doc/introduction.md
+      - Open311ServiceType           : IssueTracking/Open311_ServiceType/doc/spec.md 
+      - Open311ServiceRequest        : IssueTracking/Open311_ServiceRequest/doc/spec.md
+  - Device:                           
+      - Introduction           : Device/doc/introduction.md
+      - Device                 : Device/Device/doc/spec.md
+      - DeviceModel            : Device/DeviceModel/doc/spec.md
+  - Energy:
+      - ThreePhaseAcMeasurement      : Energy/ThreePhaseAcMeasurement/doc/spec.md
+  - Environment:
+      - Introduction           : Environment/doc/introduction.md
+      - AeroAllergenObserved   : Environment/AeroAllergenObserved/doc/spec.md
+      - AirQualityObserved     : Environment/AirQualityObserved/doc/spec.md
+      - WaterQualityObserved   : Environment/WaterQualityObserved/doc/spec.md
+      - NoiseLevelObserved     : Environment/NoiseLevelObserved/doc/spec.md
+  - Indicators:
+      - KeyPerformanceIndicator : KeyPerformanceIndicator/doc/spec.md
+  - Parking:
+      - Introduction         : Parking/doc/introduction.md 
+      - OffStreetParking     : Parking/OffStreetParking/doc/spec.md
+      - OnStreetParking      : Parking/OnStreetParking/doc/spec.md
+      - ParkingGroup         : Parking/ParkingGroup/doc/spec.md
+      - ParkingAccess        : Parking/ParkingAccess/doc/spec.md 
+      - ParkingSpot          : Parking/ParkingSpot/doc/spec.md
+  - Parks & Gardens:
+      - Introduction         : ParksAndGardens/doc/introduction.md
+      - Garden               : ParksAndGardens/Garden/doc/spec.md
+      - GreenspaceRecord     : ParksAndGardens/GreenspaceRecord/doc/spec.md
+      - FlowerBed            : ParksAndGardens/FlowerBed/doc/spec.md
+  - Points of Interest:
+      - Introduction         : PointOfInterest/doc/introduction.md
+      - PointOfInterest      : PointOfInterest/PointOfInterest/doc/spec.md
+      - Beach                : PointOfInterest/Beach/doc/spec.md
+      - Museum               : PointOfInterest/Museum/doc/spec.md
+  -  Point Of Interacion:
+      - SmartPointOfInteraction : PointOfInteraction/SmartPointOfInteraction/doc/spec.md
+      - SmartSpot               : PointOfInteraction/SmartSpot/doc/spec.md
+  -  Street Lighting:
+      - Introduction              : StreetLighting/doc/introduction.md
+      - Streetlight               : StreetLighting/Streetlight/doc/spec.md
+      - StreetlightModel          : StreetLighting/StreetlightModel/doc/spec.md
+      - StreetlightGroup          : StreetLighting/StreetlightGroup/doc/spec.md
+      - StreetlightControlCabinet : StreetLighting/StreetlightControlCabinet/doc/spec.md
+  - Transportation:
+      - Introduction           : Transportation/doc/introduction.md
+      - BikeHireDockingStation : Transportation/Bike/BikeHireDockingStation/doc/spec.md
+      - Road                   : Transportation/Road/doc/spec.md
+      - RoadSegment            : Transportation/RoadSegment/doc/spec.md
+      - TrafficFlowObserved    : Transportation/TrafficFlowObserved/doc/spec.md
+      - Vehicle                : Transportation/Vehicle/Vehicle/doc/spec.md
+      - VehicleModel           : Transportation/Vehicle/VehicleModel/doc/spec.md
+      - EVChargingStation      : Transportation/EVChargingStation/doc/spec.md
+  - UrbanMobility:
+      - Introduction           : UrbanMobility/doc/introduction.md
+      - GtfsAgency            : UrbanMobility/GtfsAgency/doc/spec.md
+      - GtfsStop              : UrbanMobility/GtfsStop/doc/spec.md
+      - GtfsStation           : UrbanMobility/GtfsStation/doc/spec.md
+      - GtfsAccessPoint       : UrbanMobility/GtfsAccessPoint/doc/spec.md
+      - GtfsRoute             : UrbanMobility/GtfsRoute/doc/spec.md
+      - GtfsTrip              : UrbanMobility/GtfsTrip/doc/spec.md
+      - GtfsStopTime          : UrbanMobility/GtfsStopTime/doc/spec.md
+      - GtfsService           : UrbanMobility/GtfsService/doc/spec.md
+      - GtfsCalendarRule      : UrbanMobility/GtfsCalendarRule/doc/spec.md
+      - GtfsCalendarDateRule  : UrbanMobility/GtfsCalendarDateRule/doc/spec.md
+      - GtfsFrequency         : UrbanMobility/GtfsFrequency/doc/spec.md
+      - GtfsTransferRule      : UrbanMobility/GtfsTransferRule/doc/spec.md
+      - GtfsShape             : UrbanMobility/GtfsShape/doc/spec.md
+      - ArrivalEstimation     : UrbanMobility/ArrivalEstimation/doc/spec.md
+  -  Weather:
+      - Introduction         : Weather/doc/introduction.md
+      - WeatherObserved      : Weather/WeatherObserved/doc/spec.md
+      - WeatherForecast      : Weather/WeatherForecast/doc/spec.md
+      - WeatherAlert         : Weather/WeatherAlert/doc/spec.md
+  -  Waste Management:
+      - Introduction         : WasteManagement/doc/introduction.md
+      - WasteContainerIsle   : WasteManagement/WasteContainerIsle/doc/spec.md
+      - WasteContainerModel  : WasteManagement/WasteContainerModel/doc/spec.md
+      - WasteContainer       : WasteManagement/WasteContainer/doc/spec.md
+
+google_analytics: ["UA-83719923-1", "fiware-datamodels.readthedocs.io"]

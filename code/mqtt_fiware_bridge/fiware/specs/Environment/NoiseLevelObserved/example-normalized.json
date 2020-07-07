@@ -1,0 +1,63 @@
+{
+  "dateObservedFrom": {
+    "type": "DateTime",
+    "value": "2016-12-28T11:00:00.00Z"
+  },
+  "LAmax": {
+    "value": 94.5
+  },
+  "LAeq": {
+    "value": 67.8
+  },
+  "dateObservedTo": {
+    "type": "DateTime",
+    "value": "2016-12-28T12:00:00.00Z"
+  },
+  "LAeq_d": {
+    "value": 65.4
+  },
+  "location": {
+    "type": "geo:json",
+    "value": {
+      "type": "Point",
+      "coordinates": [-2.698, 42.8491]
+    }
+  },
+
+  "LAS": {
+    "value": 91.6
+  },
+  "frequencies": {
+    "value": {
+      "100": 40,
+      "125": 40,
+      "160": 40,
+      "200": 40,
+      "250": 40,
+      "315": 40,
+      "400": 40,
+      "500": 40,
+      "630": 40,
+      "800": 40,
+      "1000": 40,
+      "1250": 40,
+      "1600": 40,
+      "2000": 40,
+      "2500": 40,
+      "3150": 40,
+      "4000": 40,
+      "8000": 40,
+      "10000": 40
+    },
+    "metadata": {
+      "description": {
+        "value": "A-weighted, frequency, sound level "
+      }
+    }
+  },
+  "type": "NoiseLevelObserved",
+  "id": "Vitoria-NoiseLevelObserved",
+  "LAS": {
+    "value": 91.6
+  }
+}

@@ -1,0 +1,30 @@
+{
+    "id": "urn:ngsi-ld:UserContext:UserContext1",
+    "type": "UserContext",
+    "refActivity": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Activity:UserActivity1"
+    },
+    "location": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Point",
+            "coordinates": [
+                -4.754444444,
+                41.640833333
+            ]
+        }
+    },
+    "refUser": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:User:User1"
+    },
+    "refUserDevice": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:UserDevice:Device1"
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
+}

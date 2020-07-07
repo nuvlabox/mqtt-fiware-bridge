@@ -14,10 +14,10 @@ LABEL git.build.time=${GIT_BUILD_TIME}
 LABEL travis.build.number=${TRAVIS_BUILD_NUMBER}
 LABEL travis.build.web.url=${TRAVIS_BUILD_WEB_URL}
 
-RUN pip install paho-mqtt fastjsonschema
-
 COPY code/ /opt/nuvlabox/
 
 WORKDIR /opt/nuvlabox/
 
-ENTRYPOINT ["./app.py"]
+RUN pip install .
+
+ENTRYPOINT ["./main.py"]
