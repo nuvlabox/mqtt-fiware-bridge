@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: mqtt-fiware-bridge
+Version: 0.0.1
+Summary: Reads from an MQTT broker, validates the message schema against FIWARE, and forwards the message
+Home-page: https://github.com/nuvlabox/mqtt-fiware-bridge
+Author: Cristovao Cordeiro
+Author-email: cristovao.cordeiro@sixsq.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
