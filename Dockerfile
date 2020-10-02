@@ -14,10 +14,12 @@ LABEL git.build.time=${GIT_BUILD_TIME}
 LABEL travis.build.number=${TRAVIS_BUILD_NUMBER}
 LABEL travis.build.web.url=${TRAVIS_BUILD_WEB_URL}
 
-COPY code/ /opt/nuvlabox/
+COPY code/ LICENSE /opt/nuvlabox/
 
 WORKDIR /opt/nuvlabox/
 
 RUN pip install .
+
+ONBUILD RUN ./license.sh
 
 ENTRYPOINT ["./main.py"]
