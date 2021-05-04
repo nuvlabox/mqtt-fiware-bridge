@@ -78,7 +78,7 @@ class MqttFiwareBridge(object):
         parser.add_argument('--mqtt-host', dest='mqtt_host', metavar='MQTT BROKER HOSTNAME', required=True)
         parser.add_argument('--mqtt-topic', dest='mqtt_topic', metavar='MQTT TOPIC', required=True)
         parser.add_argument('--ignore-fiware-validation', dest='ignore_fiware_validation', action='store_true',
-                            default=False, metavar='True|False')
+                            default=False)
         parser.add_argument('--output-connector', dest='connector', default=None, metavar='CONNECTOR NAME')
         parser.add_argument('--output-endpoint', dest='output_endpoint', default=None, metavar='ENDPOINT')
 
