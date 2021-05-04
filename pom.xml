@@ -6,7 +6,7 @@
     <groupId>sixsq.nuvlabox.mqtt-fiware-bridge</groupId>
     <artifactId>mqtt-fiware-bridge</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.3</version>
+    <version>0.0.4-SNAPSHOT</version>
     <name>mqtt-fiware-bridge</name>
     <url>http://sixsq.com/</url>
 
