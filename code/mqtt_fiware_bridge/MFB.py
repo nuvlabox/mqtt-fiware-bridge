@@ -77,6 +77,8 @@ class MqttFiwareBridge(object):
         parser = argparse.ArgumentParser(description=description)
         parser.add_argument('--mqtt-host', dest='mqtt_host', metavar='MQTT BROKER HOSTNAME', required=True)
         parser.add_argument('--mqtt-topic', dest='mqtt_topic', metavar='MQTT TOPIC', required=True)
+        parser.add_argument('--ignore-fiware-validation', dest='ignore_fiware_validation', action='store_true',
+                            default=False, metavar='True|False')
         parser.add_argument('--output-connector', dest='connector', default=None, metavar='CONNECTOR NAME')
         parser.add_argument('--output-endpoint', dest='output_endpoint', default=None, metavar='ENDPOINT')
 
@@ -143,12 +145,15 @@ class MqttFiwareBridge(object):
     def on_message(self, client, userdata, message):
         new_message = str(message.payload.decode("utf-8"))
         self.log.info(f"New message: {new_message}")
-        self.log.info("Verifying FIWARE compliance...")
-        if self.fiware_validate(new_message):
-            self.log.info("Message is FIWARE compliant!")
+        if self.args.ignore_fiware_validation:
             self.do_something(new_message)
         else:
-            self.log.warning("Message validation failed...")
+            self.log.info("Verifying FIWARE compliance...")
+            if self.fiware_validate(new_message):
+                self.log.info("Message is FIWARE compliant!")
+                self.do_something(new_message)
+            else:
+                self.log.warning("Message validation failed...")
 
     def on_log(self, client, userdata, level, buf):
         self.log.info(f"MQTT log: {buf}")
