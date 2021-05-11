@@ -1,5 +1,6 @@
 
 ![CI Build](https://github.com/nuvlabox/mqtt-fiware-bridge/actions/workflows/main.yml/badge.svg)
+![CI Release](https://github.com/nuvlabox/mqtt-fiware-bridge/actions/workflows/release.yml/badge.svg)
 
 # mqtt-fiware-bridge
 Optional NuvlaBox component that consumes data from a specified MQTT broker and topic, double checks the data structure against FIWARE's data schemas, and sends data to a specified endpoint
