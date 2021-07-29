@@ -63,3 +63,6 @@ If you'd like to build your own bridge, you can base your own Docker image on th
     # endless loop
     ``` 
   
+## Copyright
+
+Copyright &copy; 2021, SixSq SA
