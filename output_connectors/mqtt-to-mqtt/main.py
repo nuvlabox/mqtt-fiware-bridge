@@ -17,9 +17,9 @@ class MQTT2MQTT(MFB.MqttFiwareBridge):
         :return: updated parser
         """
         self.args.add_argument('--publish-to-mqtt-host', dest='publish_mqtt_host',
-                            metavar='MQTT BROKER HOSTNAME TO PUBLISH TO', required=True)
+                               metavar='MQTT BROKER HOSTNAME TO PUBLISH TO', required=True)
         self.args.add_argument('--publish-to-mqtt-topic', dest='publish_mqtt_topic',
-                            metavar='MQTT TOPIC TO PUBLISH TO', required=True)
+                               metavar='MQTT TOPIC TO PUBLISH TO', required=True)
         self.args.set_defaults(ignore_fiware_validation=True)
 
         return self.args

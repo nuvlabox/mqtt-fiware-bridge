@@ -36,8 +36,6 @@ FROM base as mqtt-to-mqtt
 LABEL org.opencontainers.image.title="MQTT to MQTT Bridge"
 LABEL org.opencontainers.image.description="Consumes MQTT messages from one broker and published to another"
 
-WORKDIR /opt/nuvlabox/mqtt-to-mqtt
-
 COPY output_connectors/mqtt-to-mqtt/ ./
 
 ENTRYPOINT ["./main.py"]
