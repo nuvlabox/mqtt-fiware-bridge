@@ -7,7 +7,7 @@ from mqtt_fiware_bridge import MFB
 
 class MQTT2MQTT(MFB.MqttFiwareBridge):
     def __init__(self):
-        super(MQTT2MQTT, self).__init__(this_package_name="MQTT to MQTT Bridge")
+        super(MQTT2MQTT, self).__init__(program_name="MQTT to MQTT Bridge")
 
     def extra_arguments(self) -> argparse.ArgumentParser:
         """

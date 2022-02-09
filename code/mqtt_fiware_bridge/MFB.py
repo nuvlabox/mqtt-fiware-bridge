@@ -32,13 +32,13 @@ socket.setdefaulttimeout(30)
 
 
 class MqttFiwareBridge(object):
-    def __init__(self, this_package_name="mqtt_fiware_bridge"):
-        self.this_package_name = this_package_name
+    def __init__(self, program_name="mqtt_fiware_bridge"):
+        self.this_package_name = "mqtt_fiware_bridge"
 
         self.set_logger(self.this_package_name)
         self.log = logging.getLogger(self.this_package_name)
 
-        self.args = self.arguments(self.this_package_name)
+        self.args = self.arguments(program_name)
         self.args = self.extra_arguments().parse_args()
 
         self.pkg_fiware_specs = 'fiware/specs'
