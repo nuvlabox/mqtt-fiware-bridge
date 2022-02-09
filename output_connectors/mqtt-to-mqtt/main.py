@@ -37,7 +37,7 @@ class MQTT2MQTT(MFB.MqttFiwareBridge):
         client = mqtt.Client("mqtt-to-mqtt")
 
         try:
-            client.connect(self.args.publish_mqtt_host)
+            client.connect(self.args.publish_mqtt_host, port=self.args.publish_mqtt_port)
         except (socket.gaierror, socket.timeout):
             self.log.exception(f"Cannot connect to the provided output MQTT host {self.args.publish_mqtt_host}")
 
