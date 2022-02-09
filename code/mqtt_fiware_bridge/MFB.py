@@ -8,17 +8,13 @@ This microservice is optional for the NuvlaBox.
 It takes as arguments:
  - --mqtt-host: (mandatory) MQTT broker endpoint to connect to
  - --mqtt-topic: (mandatory) MQTT topic to be subscribed
- - --output-connector: (optional) From the available connectors, which one to use. If empty, all messages go to STDOUT
- - --output-endpoint: (optional) Endpoint for the service where to push the messages to. Needs OUTPUT_CONNECTOR
+ - --ignore-fiware-validation: defaults to False. If True, it will not perform the FIWARE validation
 
 This component connects to one and only one MQTT topic from one MQTT broker.
 
 For each message received, a schema validation is performed against the FIWARE data models.
 If the received data structure is FIWARE compliant, then forward the message to the OUTPUT_ENDPOINT.
 
-There are several connectors available to choose from:
- - disk: appends the messages to a text file located inside the container. The default path is /opt/nuvlabox/output.txt.
-         This path can be overwritten by OUTPUT_ENDPOINT
 
 """
 
@@ -36,13 +32,14 @@ socket.setdefaulttimeout(30)
 
 
 class MqttFiwareBridge(object):
-    def __init__(self, ):
-        self.this_package_name = "mqtt_fiware_bridge"
+    def __init__(self, this_package_name="mqtt_fiware_bridge"):
+        self.this_package_name = this_package_name
 
         self.set_logger(self.this_package_name)
         self.log = logging.getLogger(self.this_package_name)
 
-        self.args = self.arguments(self.this_package_name).parse_args()
+        self.args = self.arguments(self.this_package_name)
+        self.args = self.extra_arguments().parse_args()
 
         self.pkg_fiware_specs = 'fiware/specs'
         self.fiware_schema_filename = 'schema.json'
@@ -79,10 +76,13 @@ class MqttFiwareBridge(object):
         parser.add_argument('--mqtt-topic', dest='mqtt_topic', metavar='MQTT TOPIC', required=True)
         parser.add_argument('--ignore-fiware-validation', dest='ignore_fiware_validation', action='store_true',
                             default=False)
-        parser.add_argument('--output-connector', dest='connector', default=None, metavar='CONNECTOR NAME')
-        parser.add_argument('--output-endpoint', dest='output_endpoint', default=None, metavar='ENDPOINT')
 
         return parser
+
+    @abstractmethod
+    def extra_arguments(self):
+        # the inheriting class can rewrite this to add more args
+        return self.args
 
     def map_all_fiware_models(self, search_at):
         """ Generates a list of keypairs, containing the paths to all FIWARE data models
@@ -170,7 +170,7 @@ class MqttFiwareBridge(object):
         except (socket.gaierror, socket.timeout):
             self.log.exception(f"Cannot connect to the provided MQTT host {self.args.mqtt_host}")
 
-        client.on_message=self.on_message
+        client.on_message = self.on_message
         # client.on_log=self.on_log
 
         self.log.info(f"Subscribing to topic {self.args.mqtt_topic}")
