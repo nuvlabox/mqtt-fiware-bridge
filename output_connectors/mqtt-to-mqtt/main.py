@@ -23,6 +23,8 @@ class MQTT2MQTT(MFB.MqttFiwareBridge):
                                metavar='MQTT BROKER HOSTNAME TO PUBLISH TO', required=True)
         self.args.add_argument('--publish-to-mqtt-topic', dest='publish_mqtt_topic',
                                metavar='MQTT TOPIC TO PUBLISH TO', required=True)
+        self.args.add_argument('--publish-to-mqtt-port', dest='publish_mqtt_port',
+                               metavar='MQTT PORT TO PUBLISH TO', default='1883')
         self.args.set_defaults(ignore_fiware_validation=True)
 
         return self.args
