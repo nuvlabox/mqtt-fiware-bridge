@@ -2,12 +2,15 @@
 
 import argparse
 import paho.mqtt.client as mqtt
+import socket
 from mqtt_fiware_bridge import MFB
 
 
 class MQTT2MQTT(MFB.MqttFiwareBridge):
     def __init__(self):
         super(MQTT2MQTT, self).__init__(program_name="MQTT to MQTT Bridge")
+
+        self.out_connector = self.connect_out()
 
     def extra_arguments(self) -> argparse.ArgumentParser:
         """
@@ -24,9 +27,23 @@ class MQTT2MQTT(MFB.MqttFiwareBridge):
 
         return self.args
 
+    def connect_out(self) -> mqtt.Client:
+        """ Connect to the output MQTT broker """
+
+        self.log.info(f"Connecting to output MQTT broker at {self.args.publish_mqtt_host}")
+
+        client = mqtt.Client("mqtt-to-mqtt")
+
+        try:
+            client.connect(self.args.publish_mqtt_host)
+        except (socket.gaierror, socket.timeout):
+            self.log.exception(f"Cannot connect to the provided output MQTT host {self.args.publish_mqtt_host}")
+
+        return client
+
     def do_something(self, message):
-        self.log.info(f"Printing validated message from {__name__}")
-        print(f"Voila: {message}")
+        self.log.info(f"Sending message {message} to {self.args.publish_mqtt_host} on {self.args.publish_mqtt_topic}")
+        self.out_connector.publish(self.args.publish_mqtt_topic, payload=message)
 
 
 if __name__ == "__main__":
