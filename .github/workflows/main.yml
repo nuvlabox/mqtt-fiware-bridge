@@ -31,6 +31,12 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.SIXSQ_DOCKER_PASSWORD }}
         run: ./container-release.sh
 
+      - name: Build and deploy output connectors on architecture
+        env:
+          DOCKER_USERNAME: ${{ secrets.SIXSQ_DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.SIXSQ_DOCKER_PASSWORD }}
+        run: ./container-release-connectors.sh
+
       - name: Get component dependencies
         run: ./get-dependencies-tree.sh
 
