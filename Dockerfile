@@ -1,4 +1,4 @@
-FROM python:3-slim as base
+FROM python:3.9.4-slim as base
 
 ARG GIT_BRANCH
 ARG GIT_COMMIT_ID

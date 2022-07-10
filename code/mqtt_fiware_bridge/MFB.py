@@ -22,6 +22,8 @@ import socket
 import logging
 import sys
 import argparse
+from typing import List
+
 import fastjsonschema
 import json
 import pkg_resources
@@ -32,6 +34,8 @@ socket.setdefaulttimeout(30)
 
 
 class MqttFiwareBridge(object):
+    _DEFAULT_QOS: int = 0
+
     def __init__(self, program_name="mqtt_fiware_bridge"):
         self.this_package_name = "mqtt_fiware_bridge"
 
@@ -72,10 +76,12 @@ class MqttFiwareBridge(object):
         """
 
         parser = argparse.ArgumentParser(description=description)
-        parser.add_argument('--mqtt-host', dest='mqtt_host', metavar='MQTT BROKER HOSTNAME', required=True)
-        parser.add_argument('--mqtt-topic', dest='mqtt_topic', metavar='MQTT TOPIC', required=True)
-        parser.add_argument('--ignore-fiware-validation', dest='ignore_fiware_validation', action='store_true',
-                            default=False)
+        parser.add_argument('--mqtt-host', dest='mqtt_host',
+                            metavar='MQTT BROKER HOSTNAME', required=True)
+        parser.add_argument('--mqtt-topic', dest='mqtt_topic', metavar='MQTT TOPIC',
+                            action='append', required=True)
+        parser.add_argument('--ignore-fiware-validation', dest='ignore_fiware_validation',
+                            action='store_true', default=False)
 
         return parser
 
@@ -158,6 +164,21 @@ class MqttFiwareBridge(object):
     def on_log(self, client, userdata, level, buf):
         self.log.info(f"MQTT log: {buf}")
 
+    def add_default_qos_to_topic(self, topic_list: List[str]) -> List[tuple]:
+        """
+        Receives a lists of topics and returns a list of tuples topics following the
+        structure [ (name, qos) , (name2, qos) ]
+
+        Parameters
+        ----------
+        topic_list: arg parser list of topics
+
+        Returns
+        -------
+        list of tuples name+qos
+        """
+        return [(topic_name, self._DEFAULT_QOS) for topic_name in topic_list]
+
     def connect(self):
         """ Connect to the MQTT broker and starts listening forever """
 
@@ -171,9 +192,8 @@ class MqttFiwareBridge(object):
             self.log.exception(f"Cannot connect to the provided MQTT host {self.args.mqtt_host}")
 
         client.on_message = self.on_message
-        # client.on_log=self.on_log
 
         self.log.info(f"Subscribing to topic {self.args.mqtt_topic}")
-        client.subscribe(self.args.mqtt_topic)
+        client.subscribe(self.add_default_qos_to_topic(self.args.mqtt_topic))
 
         client.loop_forever()
